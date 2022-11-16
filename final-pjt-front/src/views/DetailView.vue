@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     getArticleDetail() {
+      console.log("되니?")
       axios({
         method: "get",
         url: `${API_URL}/api/v1/articles/${this.$route.params.id}`
