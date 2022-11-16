@@ -2,7 +2,7 @@
   <div id="app">
     <b-nav small>
       <b-nav-item link>
-        <router-link to="/">Home</router-link>
+        <router-link :to="{ name: 'HomeView' }" >Home</router-link>
       </b-nav-item>
       <b-nav-item link>
         <router-link :to="{ name: 'SignUpView' }">Signup</router-link>
@@ -10,14 +10,10 @@
       <b-nav-item link>
         <router-link :to="{ name: 'LogInView' }">Login</router-link>
       </b-nav-item>
+      <b-nav-item link>
+        <router-link :to="{ name: 'ArticleView' }">Articles</router-link>
+      </b-nav-item>
     </b-nav>
-    <!-- <nav>
-      <router-link to="/">
-        <img src="@/assets/logo.png" alt="" />
-      </router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </nav> -->
     <router-view />
   </div>
 </template>

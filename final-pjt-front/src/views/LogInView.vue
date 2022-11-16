@@ -21,19 +21,19 @@ export default {
     return {
       username: null,
       password: null,
-    };
+    }
   },
   methods: {
     logIn() {
-      const username = this.username;
-      const password = this.password;
+      const username = this.username
+      const password = this.password
 
       const payload = {
-        username,
-        password,
+        username: username,
+        password: password,
       }
 
-      this.$store.dispatch("logIn", payload);
+      this.$store.dispatch("logIn", payload)
     },
   },
 };

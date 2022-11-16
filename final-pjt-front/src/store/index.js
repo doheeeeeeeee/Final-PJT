@@ -2,17 +2,24 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
-
-const API_URL = "http://127.0.0.1:8000"
+import router from '@/router'
 
 Vue.use(Vuex)
+
+const API_URL = "http://127.0.0.1:8000"
 
 export default new Vuex.Store({
   plugins: [
     createPersistedState(),
   ],
   state: {
-    movies: [],
+    articles: [],
+    movies: [
+      {
+        title: 'a',
+        content: 'a',
+      }
+    ],
     token: null,
   },
   getters: {
@@ -21,6 +28,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    GET_ARTICLES(state, articles) {
+      state.articles = articles
+    },
     GET_MOVIES(state, movies) {
       state.movies = movies
     },
@@ -29,13 +39,29 @@ export default new Vuex.Store({
     // },
     SAVE_TOKEN(state, token) {
       state.token = token
+      router.push({ name: "ArticleView" })
     }
   },
   actions: {
+    getArticles(context) {
+      axios({
+        method: "get",
+        url: `${API_URL}/api/v1/articles/`,
+        headers: {
+          Authorization: `Token ${context.state.token}`
+        }
+      })
+        .then((res) => {
+          context.commit('GET_ARTICLES', res.data)
+        })
+    },
     getMovies(context) {
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies`,
+        headers: {
+          Authorization: `Token ${context.state.token}`
+        }
       })
         .then((res) => {
           context.commit('GET_MOVIES', res.data)
@@ -45,15 +71,13 @@ export default new Vuex.Store({
         })
     },
     signUp(context, payload) {
-      const username = payload.username
-      const password1 = payload.password1
-      const password2 = payload.password2
-
       axios({
         method: "post",
         url: `${API_URL}/accounts/signup/`,
         data: {
-          username, password1, password2
+          username: payload.username,
+          password1: payload.password1,
+          password2: payload.password2,
         }
       })
         .then((res) => {
@@ -62,13 +86,12 @@ export default new Vuex.Store({
         .catch((err) => console.log(err))
     },
     logIn(context, payload) {
-      const username = payload.username
-      const password = payload.password
       axios({
         method: "post",
         url: `${API_URL}/accounts/login/`,
         data: {
-          username, password
+          username: payload.username,
+          password: payload.password,
         }
       })
         .then((res) => {
