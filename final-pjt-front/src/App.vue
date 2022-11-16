@@ -10,9 +10,6 @@
       <b-nav-item link>
         <router-link :to="{ name: 'LogInView' }">Login</router-link>
       </b-nav-item>
-      <b-nav-item link>
-        <router-link :to="{ name: 'ArticleView' }">Articles</router-link>
-      </b-nav-item>
     </b-nav>
     <router-view />
   </div>

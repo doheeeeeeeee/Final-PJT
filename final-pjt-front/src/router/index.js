@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ArticleView from '@/views/ArticleView'
-import CreateView from '@/views/CreateView'
-import DetailView from '@/views/DetailView'
+// import ArticleView from '@/views/ArticleView'
+// import CreateView from '@/views/CreateView'
+// import DetailView from '@/views/DetailView'
 import SignUpView from '@/views/SignUpView'
 import LogInView from '@/views/LogInView'
 import HomeView from '@/views/HomeView'
@@ -15,11 +15,11 @@ const routes = [
     name: 'HomeView',
     component: HomeView
   },
-  {
-    path: '/create',
-    name: 'CreateView',
-    component: CreateView
-  },
+  // {
+  //   path: '/create',
+  //   name: 'CreateView',
+  //   component: CreateView
+  // },
   {
     path: '/signup',
     name: 'SignUpView',
@@ -30,16 +30,16 @@ const routes = [
     name: "LogInView",
     component: LogInView
   },
-  {
-    path: "/:id",
-    name: "DetailView",
-    component: DetailView,
-  },
-  {
-    path: '/article',
-    name: "ArticleView",
-    component: ArticleView
-  }
+  // {
+  //   path: "/:id",
+  //   name: "DetailView",
+  //   component: DetailView,
+  // },
+  // {
+  //   path: '/article',
+  //   name: "ArticleView",
+  //   component: ArticleView
+  // }
 ]
 
 const router = new VueRouter({

@@ -39,7 +39,7 @@ export default new Vuex.Store({
     // },
     SAVE_TOKEN(state, token) {
       state.token = token
-      router.push({ name: "ArticleView" })
+      router.push({ name: "HomeView" })
     }
   },
   actions: {
