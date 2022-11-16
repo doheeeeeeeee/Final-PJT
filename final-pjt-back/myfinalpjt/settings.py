@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+SITE_ID = 1
+
 REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -78,16 +80,23 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
 ]
 
 ROOT_URLCONF = 'myfinalpjt.urls'
@@ -140,9 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
-]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
