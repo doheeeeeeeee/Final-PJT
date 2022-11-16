@@ -1,4 +1,4 @@
-# top-prize-fe
+# final-pjt-front
 
 ## Project setup
 ```
