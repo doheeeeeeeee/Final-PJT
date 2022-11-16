@@ -34,9 +34,9 @@ export default new Vuex.Store({
     GET_MOVIES(state, movies) {
       state.movies = movies
     },
-    // SIGN_UP(state, token) {
-    //   state.token = token
-    // },
+    SIGN_UP(state, token) {
+      state.token = token
+    },
     SAVE_TOKEN(state, token) {
       state.token = token
       router.push({ name: "ArticleView" })
