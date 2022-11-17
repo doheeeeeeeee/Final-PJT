@@ -63,9 +63,12 @@ def create_movie_data():
         for movie in movies:
             if movie.get('release_date') == "" or movie.get('poster_path') == "":
                 continue
-
+            
+            movie.pop('adult')
             movie.pop('backdrop_path')
             movie.pop('video')
+            movie.pop('original_language')
+            movie.pop('original_title')
             movie['like_users'] = []
             tmp = {
                 'model': 'movies.movie',

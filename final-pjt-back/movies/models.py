@@ -13,7 +13,8 @@ class Movie(models.Model):
     vote_average = models.FloatField()
     overview = models.TextField()
     poster_path = models.CharField(max_length=200)
-    genres = models.ManyToManyField(Genre)
+    genre_ids = models.ManyToManyField(Genre)
+    
 
 class Comment(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
