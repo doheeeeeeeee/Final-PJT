@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <b-nav small>
+      <b-nav-item>
+        <img src="" alt="">
+      </b-nav-item>
       <b-nav-item link>
         <router-link :to="{ name: 'HomeView' }" >Home</router-link>
       </b-nav-item>
