@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <img :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`" alt=""><br>
-    <span>제목 : {{ movie.title }}</span><br>
+  <div class="card">
+    <!-- <img :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`" alt=""><br>
+    <span>{{ movie.title }}</span><br> -->
+      <b-card :title="movie.title" :img-src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`" img-top>
+      </b-card>
   </div>
 </template>
 
@@ -21,5 +23,7 @@ export default {
 </script>
 
 <style>
-
+b-card {
+  width: 200px;
+}
 </style>

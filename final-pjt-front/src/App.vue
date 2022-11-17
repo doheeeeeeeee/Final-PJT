@@ -2,7 +2,7 @@
   <div id="app">
     <b-nav small>
       <b-nav-item>
-        <img src="" alt="">
+        <img id="logo" src="@/assets/logo.png" alt="">
       </b-nav-item>
       <b-nav-item link>
         <router-link :to="{ name: 'HomeView' }" >Home</router-link>
@@ -23,7 +23,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -40,5 +39,9 @@ nav img {
   display: inline-block;
   width: 30px;
   height: 30px;
+}
+
+#logo {
+  width: 30px;
 }
 </style>

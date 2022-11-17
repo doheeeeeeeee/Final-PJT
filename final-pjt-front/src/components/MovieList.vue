@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <h3>Movie List</h3>
+  <b-card-group deck>
     <MovieListItem
       v-for="movie in movies"
       :key="movie.id"
       :movie="movie"
     />
-  </div>
+  </b-card-group>
 </template>
 
 <script>
 import MovieListItem from '@/components/MovieListItem'
+
 
 export default {
   name: "MovieList",
@@ -19,12 +19,20 @@ export default {
       return this.$store.state.movies
     }
   },
+  data() {
+    return {
+
+    }
+  },
   components: {
     MovieListItem,
-  }
+  },
 }
 </script>
 
 <style>
-
+#movie-list {
+  width: 25%;
+  display: inline-block;
+}
 </style>
