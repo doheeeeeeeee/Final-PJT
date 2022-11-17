@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 import SignUpView from '@/views/SignUpView'
 import LogInView from '@/views/LogInView'
 import HomeView from '@/views/HomeView'
+import store from '@/store'
+
 
 Vue.use(VueRouter)
 
@@ -28,7 +30,15 @@ const routes = [
   {
     path: "/login",
     name: "LogInView",
-    component: LogInView
+    component: LogInView,
+    beforeEnter(to, from, next) {
+      const isLogIn = store.getters.isLogin
+      if (isLogIn) {
+        next({ name: "HomeView" })
+      } else {
+        next()
+      }
+    }
   },
   // {
   //   path: "/:id",
